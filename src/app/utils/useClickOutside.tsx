@@ -1,12 +1,12 @@
-import React, { ReactEventHandler, ReactNode, Reference, RefObject, useEffect } from "react";
+import React, {  useEffect } from "react";
 
-export default function useClickOutside(ref:React.RefObject<HTMLDivElement>, onClickOutside:Function) {
+export default function useClickOutside(ref:React.RefObject<HTMLDivElement>, onClickOutside:()=>void) {
   useEffect(() => {
     /**
      * Invoke Function onClick outside of element
      */
-    function handleClickOutside(event:any) {
-      if (ref.current && !ref.current.contains(event.target)) {
+    function handleClickOutside(event:MouseEvent) {
+      if (ref.current && !ref.current.contains(event.target as Node)) {
         onClickOutside();
       }
     }

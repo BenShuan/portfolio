@@ -1,15 +1,14 @@
 
-import React, { ReactElement, ReactNode } from "react";
+import React, {  ReactNode } from "react";
 
 interface headerProp extends React.AllHTMLAttributes<HTMLParagraphElement> {
   children: ReactNode;
-  fontSize?:string;
 }
 
-const Header = ({ children,fontSize="5xl",...rest }: headerProp) => {
+const Header = ({ children,...rest }: headerProp) => {
 
 
-  return <p {...rest} className={`text-${fontSize} font-extrabold capitalize `+rest.className}>{children}</p>
+  return <p className={`text-5xl font-extrabold capitalize `+rest.className}  {...rest}>{children}</p>
 };
 
 export default Header;

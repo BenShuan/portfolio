@@ -1,7 +1,7 @@
 "use client";
 import { motion, MotionConfig, Variants } from "framer-motion";
 import Header from "./Header";
-import InViewContainer from "./InViewContainer";
+import Image from "next/image";
 
 function HeroSection() {
 
@@ -44,11 +44,14 @@ function HeroSection() {
             translateX: 0,
           }}
         >
-          <img
-            src="images/Profile image.jpg"
-            className="w-40 h-40 p-1 rounded-full ring-2 ring-gray-300 object-cover object-top dark:ring-gray-500 
+          <Image
+          width={10000}
+          height={10000}
+          alt="profile picture"
+            src="/images/Profile image.jpg"
+            className="w-60 h-60 p-1 rounded-full ring-2 ring-gray-300 object-cover object-top dark:ring-gray-500 
         transition-all drop-shadow-2xl "
-          />
+          ></Image>
         </motion.div>
         <motion.div
           className="flex flex-col gap-1 rounded-xl p-3 m-3 text-black "
@@ -58,7 +61,7 @@ function HeroSection() {
           style={{textShadow:'1px 1px 2px white, 0 0 1em white, 0 0 0.2em blue'}}
         >
           <motion.div variants={textVariants}>
-            <Header>Hi, I'm Ben Shuan</Header>
+            <Header>Hi, I`&apos;`m Ben Shuan</Header>
           </motion.div>
 
           <motion.p variants={textVariants} className="text-3xl font-bold ">
@@ -68,7 +71,7 @@ function HeroSection() {
             variants={textVariants}
             className="text-2xl drop-shadow-3xl shadow-white"
           >
-            I'm a Junior Full-stack developer <br />
+            I`&apos;`m a Junior Full-stack developer <br />
             riding the waves of both code and surf
           </motion.p>
         </motion.div>

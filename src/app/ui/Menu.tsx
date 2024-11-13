@@ -1,7 +1,7 @@
 "use client";
 import React, { useRef, useState } from "react";
 import Button from "./Button";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import MenuButton from "./MenuButton";
 import NavItem from "./NavItem";
 import {  usePathname } from "next/navigation";
@@ -35,7 +35,7 @@ function Menu() {
       <Button
         layout={"full"}
         color={"blue"}
-        onClick={(e) => setIsOpen((prev) => !prev)}
+        onClick={() => setIsOpen((prev) => !prev)}
       >
         <MenuButton isOpen={isOpen} />
       </Button>

@@ -1,5 +1,5 @@
 
-function About() {
+function Contant() {
   return (
     <div>About
       
@@ -7,4 +7,4 @@ function About() {
   )
 }
 
-export default About
+export default Contant

@@ -1,7 +1,7 @@
 import { motion, MotionConfig } from "framer-motion";
 import React from "react";
 
-function MenuButton({ isOpen }: { isOpen: Boolean }) {
+function MenuButton({ isOpen }: { isOpen: boolean }) {
   const lineStyle = "bg-white absolute w-7 h-1 rounded-lg left-1/2 ";
 
   return (

@@ -30,7 +30,7 @@ const backgroundVaianbt : Variants={
   }
 }
 
-const NavItem = ({ link, text,isCurrent, ...rest }: NavItemProps) => {
+const NavItem = ({ link, text,isCurrent }: NavItemProps) => {
   return (
     <motion.li
       variants={itemVariants}
