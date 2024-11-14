@@ -1,6 +1,7 @@
+import { menu } from "@/app/Data/DataFunctions"
 import Menu from "@/app/ui/Menu"
 import { ReactNode } from "react"
-import { menu } from "../layout"
+
 
 
 function layout({children}:{children:ReactNode}) {

@@ -1,6 +1,5 @@
 "use client";
 import Header from "@/app/ui/Header";
-import InViewContainer from "@/app/ui/InViewContainer";
 
 const projects = [
   {
@@ -66,7 +65,7 @@ function Projects() {
     <div className="flex flex-wrap justify-center h-full overflow-scroll py-10 gap-9">
       {projects.map((proj) => {
         return (
-          <div className=" w-2/3 h-2/3 md:w-1/3 relative  group overflow-hidden  *:rounded-lg ">
+          <div key={proj.Id} className=" w-2/3 h-2/3 md:w-1/3 relative  group overflow-hidden  *:rounded-lg ">
             <img
               src={proj.ImageLink}
               alt={proj.Name}
@@ -76,7 +75,7 @@ function Projects() {
               <Header>{proj.Name}</Header>
               <p className="text-xl">{proj.Description}</p>
               <div>
-                
+
               </div>
             </div>
           </div>

@@ -2,8 +2,8 @@
 import React from "react";
 import InViewContainer from "./InViewContainer";
 import Header from "./Header";
-import { menu } from "../(HomePage)/layout";
 import Link from "next/link";
+import { menu } from "../Data/DataFunctions";
 
 const BoardsSection = () => {
   return (
