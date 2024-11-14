@@ -27,7 +27,7 @@ function HeroSection() {
   };
 
   return (
-    <div className="min-h-fit h-3/4 flex flex-col md:flex-row p-10 pt-20 text-pretty overflow-hidden gap-5">
+    <div className=" flex flex-col md:flex-row p-10 pt-20 text-pretty overflow-hidden gap-5">
       <MotionConfig
         transition={{
           ease: "backOut",
@@ -61,7 +61,7 @@ function HeroSection() {
           style={{textShadow:'1px 1px 2px white, 0 0 1em white, 0 0 0.2em blue'}}
         >
           <motion.div variants={textVariants}>
-            <Header>Hi, I`&apos;`m Ben Shuan</Header>
+            <Header>Hi, I&apos;m Ben Shuan</Header>
           </motion.div>
 
           <motion.p variants={textVariants} className="text-3xl font-bold ">
@@ -71,7 +71,7 @@ function HeroSection() {
             variants={textVariants}
             className="text-2xl drop-shadow-3xl shadow-white"
           >
-            I`&apos;`m a Junior Full-stack developer <br />
+            I&apos;m a Junior Full-stack developer <br />
             riding the waves of both code and surf
           </motion.p>
         </motion.div>

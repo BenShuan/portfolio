@@ -21,6 +21,7 @@ const config: Config = {
       
       backgroundImage: {
         hero: `url('/images/Landscape Background.jpg')`,
+        surfboard: `url('/images/surfboard.png') `,
       },
       colors: {
         background: "var(--background)",

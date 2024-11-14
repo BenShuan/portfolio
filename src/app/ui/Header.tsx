@@ -8,7 +8,7 @@ interface headerProp extends React.AllHTMLAttributes<HTMLParagraphElement> {
 const Header = ({ children,...rest }: headerProp) => {
 
 
-  return <p className={`text-5xl font-extrabold capitalize `+rest.className}  {...rest}>{children}</p>
+  return <p  className={`text-5xl font-extrabold capitalize `+rest.className} {...rest} >{children}</p>
 };
 
 export default Header;

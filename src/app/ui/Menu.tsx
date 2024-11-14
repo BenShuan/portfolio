@@ -6,20 +6,17 @@ import MenuButton from "./MenuButton";
 import NavItem from "./NavItem";
 import {  usePathname } from "next/navigation";
 import useClickOutside from "../utils/useClickOutside";
+import { menuScheme } from "../Data/schems";
 
-function Menu() {
+
+
+function Menu({menu}:{menu:menuScheme[]}) {
   const [isOpen, setIsOpen] = useState(false);
 
   const pathName = usePathname();
 
 
-  const catMenu = useRef<HTMLDivElement>(null)
-  const menu = [
-    { text: "Home", link: "/" },
-    { text: "Projects", link: "/projects" },
-    { text: "About", link: "/about" },
-    { text: "Contact", link: "/contact" },
-  ];
+  const catMenu = useRef<HTMLDivElement>(null);
 
   useClickOutside(catMenu, () => {
     setIsOpen(false);
