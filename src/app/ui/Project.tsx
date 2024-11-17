@@ -32,7 +32,7 @@ const Project = ({ proj }: { proj: projectScheme }) => {
         <div className="flex flex-wrap gap-2 ">
           {proj.Technologies.map((t) => {
             return (
-              <p className="text-xs bg-main-blue-light text-slate-800 py-1 px-2 rounded-full ">
+              <p key={t} className="text-xs bg-main-blue-light text-slate-800 py-1 px-2 rounded-full ">
                 {t}{" "}
               </p>
             );
