@@ -6,10 +6,10 @@ import { ReactNode } from "react"
 
 function layout({children}:{children:ReactNode}) {
   return (
-    <div className='h-dvh font-[family-name:var(--font-surf-sans)] bg-hero bg-bottom bg-scroll bg-cover bg-no-repeat'>
+    <div className='h-dvh font-[family-name:var(--font-surf-sans)] bg-hero bg-bottom bg-scroll bg-cover bg-no-repeat '>
       <Menu menu={menu} />
 
-      {children}
+      <div className="pt-14 backdrop-blur h-full">{children}</div>
     </div>
   )
 }

@@ -71,7 +71,7 @@ function Button({ children, layout = "full", color = "blue",...rest }: ButtonPro
   return (
     <button
     {...rest}
-      className={`shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 px-3.5 py-2.5 text-sm font-semibold rounded-md ${layouts[layout]}`}
+      className={`shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 px-3.5 py-2.5 text-sm font-semibold rounded-md ${layouts[layout]} `+rest.className}
     >
       {children}
     </button>
