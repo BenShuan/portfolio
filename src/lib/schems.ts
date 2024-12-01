@@ -12,3 +12,9 @@ export interface projectScheme{
   Technologies:string[] ;
   Description:string ;
 }
+
+export interface formScheme {
+  name: string;
+  email: string;
+  message: string;
+}

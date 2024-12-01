@@ -1,17 +1,18 @@
-import { menu } from "@/app/Data/DataFunctions"
-import Menu from "@/app/ui/Menu"
-import { ReactNode } from "react"
+import { menu } from "@/lib/DataFunctions";
+import Menu from "@/ui/Menu";
+import SmallMenu from "@/ui/SmallMenu";
+import { ReactNode } from "react";
 
-
-
-function layout({children}:{children:ReactNode}) {
+function layout({ children }: { children: ReactNode }) {
   return (
-    <div className='h-dvh font-[family-name:var(--font-surf-sans)] bg-hero bg-bottom bg-scroll bg-cover bg-no-repeat '>
-      <Menu menu={menu} />
-
-      <div className="pt-14 backdrop-blur h-full">{children}</div>
-    </div>
-  )
+    <div className=" font-[family-name:var(--font-surf-sans)] backdrop-blur h-full flex flex-col ">
+        <header className="h-[5%] md:h-[10%] lg:h-[15%]">
+          <SmallMenu menu={menu} />
+          <Menu menu={menu} />
+        </header>
+        <main className=" h-[95%] md:h-[90%] lg:h-[85%]  ">{children}</main>
+      </div>
+  );
 }
 
-export default layout
+export default layout;

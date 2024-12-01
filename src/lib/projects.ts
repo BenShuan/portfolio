@@ -1,11 +1,4 @@
-export const menu = [
-  { text: "Home", link: "/" },
-  { text: "Projects", link: "/projects" },
-  { text: "About", link: "/about" },
-  { text: "Contact", link: "/contact" },
-];
-
-export const projects = [
+const projects = [
   {
     Id: 1,
     Name: "Dog Shelter Matcher",
@@ -61,5 +54,39 @@ export const projects = [
     Technologies: ["Angular", "ASP.NET Core", "MySQL", "Azure", "Leaflet"],
     Description:
       "A web application for browsing real estate listings, with interactive maps and filters for enhanced user experience.",
+  }, {
+    Id: 6,
+    Name: "Real Estate Listings",
+    Link: "https://realestatelistings.com",
+    ImageLink: "/images/מי בבית.png",
+    githubLink:"https://github.com/ruppinCgroup54/Hameluna-client",
+    Technologies: ["Angular", "ASP.NET Core", "MySQL", "Azure", "Leaflet"],
+    Description:
+      "A web application for browsing real estate listings, with interactive maps and filters for enhanced user experience.",
+  }, {
+    Id: 7,
+    Name: "Real Estate Listings",
+    Link: "https://realestatelistings.com",
+    ImageLink: "/images/מי בבית.png",
+    githubLink:"https://github.com/ruppinCgroup54/Hameluna-client",
+    Technologies: ["Angular", "ASP.NET Core", "MySQL", "Azure", "Leaflet"],
+    Description:
+      "A web application for browsing real estate listings, with interactive maps and filters for enhanced user experience.",
+  }, {
+    Id: 8,
+    Name: "Real Estate Listings",
+    Link: "https://realestatelistings.com",
+    ImageLink: "/images/מי בבית.png",
+    githubLink:"https://github.com/ruppinCgroup54/Hameluna-client",
+    Technologies: ["Angular", "ASP.NET Core", "MySQL", "Azure", "Leaflet"],
+    Description:
+      "A web application for browsing real estate listings, with interactive maps and filters for enhanced user experience.",
   },
 ];
+
+
+export const GetProjects=()=>{
+
+  return projects;
+
+}

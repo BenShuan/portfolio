@@ -1,18 +1,18 @@
 import React from "react";
-import HeroSection from "../ui/HeroSection";
-import BoardsSection from "../ui/BoardsSection";
+import HeroSection from "../../ui/HeroSection";
+import BoardsSection from "../../ui/BoardsSection";
 
 function HomePage() {
   return (
-    <div className="h-[100%] overflow-scroll ">
-      <div className="h-1/2 min-h-fit">
+    <main className="h-[100%] overflow-scroll backdrop-blur-sm  ">
+      <div className="h-full md:h-1/2 min-h-fit ">
         <HeroSection />
       </div>
-      <div className=" h-full md:h-1/2 ">
+      <div className=" h-full md:h-1/2  relative ">
+        
         <BoardsSection />
       </div>
-      {/* <SkillsSection/> */}
-    </div>
+    </main>
   );
 }
 

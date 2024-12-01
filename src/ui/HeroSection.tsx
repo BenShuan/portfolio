@@ -2,6 +2,8 @@
 import { motion, MotionConfig, Variants } from "framer-motion";
 import Header from "./Header";
 import Image from "next/image";
+import ProfileImage from "@/assets/Profile image.jpg"
+
 
 function HeroSection() {
 
@@ -19,15 +21,17 @@ function HeroSection() {
   };
   const textVariants: Variants = {
     hidden: {
-      translateX: "100vw",
+      translateX: "40vw",
+      opacity:0
     },
     show: {
       translateX: "0",
+      opacity:1
     },
   };
 
   return (
-    <div className=" flex flex-col md:flex-row p-10 pt-20 text-pretty overflow-hidden gap-5">
+    <section className=" flex flex-col h-full md:h-fit lg:flex-row p-10 pt-20 text-pretty overflow-hidden gap-5">
       <MotionConfig
         transition={{
           ease: "backOut",
@@ -38,23 +42,24 @@ function HeroSection() {
 
         <motion.div
           initial={{
-            translateX: "-100vw",
+            translateX: "-50vw",
+            opacity:0
           }}
           animate={{
             translateX: 0,
+            opacity:1
           }}
         >
           <Image
-          width={10000}
-          height={10000}
+          priority
           alt="profile picture"
-            src="/images/Profile image.jpg"
-            className="w-60 h-60 p-1 rounded-full ring-2 ring-gray-300 object-cover object-top dark:ring-gray-500 
-        transition-all drop-shadow-2xl "
-          ></Image>
+            src={ProfileImage}
+            className="w-60 h-60 p-1 rounded-full object-cover object-right-top
+        transition-all drop-shadow-2xl m-auto lg:m-0"
+          />
         </motion.div>
         <motion.div
-          className="flex flex-col gap-1 rounded-xl p-3 m-3 text-black "
+          className="flex flex-col gap-1 rounded-xl flex-1 p-3 m-3 text-black justify-evenly text-center lg:text-left"
           variants={containerVariants}
           initial="hidden"
           animate="show"
@@ -75,9 +80,10 @@ function HeroSection() {
             riding the waves of both code and surf
           </motion.p>
         </motion.div>
+         
 
       </MotionConfig>
-    </div>
+    </section>
   );
 }
 

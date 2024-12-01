@@ -1,11 +1,12 @@
+"use client"
 import { motion, Variants } from "framer-motion";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React from "react";
 
 interface NavItemProps extends React.LiHTMLAttributes<HTMLLIElement> {
   link: string;
   text: string;
-  isCurrent:boolean
 }
 
 const itemVariants: Variants = {
@@ -30,22 +31,26 @@ const backgroundVaianbt : Variants={
   }
 }
 
-const NavItem = ({ link, text,isCurrent }: NavItemProps) => {
+const NavItem = ({ link, text,className,children }: NavItemProps) => {
+
+  const path = usePathname();
+
   return (
     <motion.li
       variants={itemVariants}
       whileHover={"hover"}
       whileTap={{scale: 0.95}}
-      className="relative font-extrabold" 
+      className= {`relative font-extrabold flex justify-center  items-center ${className}` }
     >
       
     <motion.span
-    className="bg-slate-700 absolute w-0 h-full top-1/2 left-0 "
+    className="bg-slate-700 md:bg-slate-200 absolute w-0 h-full top-1/2 left-0 "
     variants={backgroundVaianbt}
-      animate={isCurrent?"hover":""}
+    whileHover={"hover"}
+      animate={path.startsWith(link) ?"hover":""}
     >
     </motion.span>
-      <Link className="relative text-2xl" href={link}>{text}</Link>
+      <Link className="relative text-2xl " href={link}>{children}{text}</Link>
     </motion.li>
   );
 };
