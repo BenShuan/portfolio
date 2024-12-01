@@ -1,12 +1,12 @@
 "use client"
-import React, { InputHTMLAttributes } from 'react'
+import React from 'react'
 
 
 interface inputProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
 
 }
 
-const Textarea = ({id,value, name,className, ...inputProps}:inputProps) => {
+const Textarea = ({id, name,className, ...inputProps}:inputProps) => {
 
 
   return (

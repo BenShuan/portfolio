@@ -6,7 +6,6 @@ import Header from "./Header";
 import { menu } from "../lib/DataFunctions";
 
 import Surfboard from "@/assets/surfboard.png";
-import { MdOutlineKeyboardDoubleArrowDown } from "react-icons/md";
 
 const BoardsSection = () => {
   return (

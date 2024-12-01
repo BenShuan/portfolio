@@ -2,7 +2,6 @@
 import React from "react";
 import { Skill } from "./Skill";
 import Header from "./Header";
-import InViewContainer from "./InViewContainer";
 
 const skills = ["HTML", "CSS", "JS", "C#", ".NET CORE"];
 

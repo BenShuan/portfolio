@@ -2,9 +2,10 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { formScheme } from "./schems";
 
 
-export async function SendMessage(prevState: any, formData: FormData) {
+export async function SendMessage(prevState: formScheme, formData: FormData) {
   const data ={
     name : formData.get("name"),
     email : formData.get("email"),
@@ -14,7 +15,7 @@ export async function SendMessage(prevState: any, formData: FormData) {
 
 
   if (!data) {
-    return { message: data };
+    return  data ;
   }
 
   revalidatePath("/","layout")

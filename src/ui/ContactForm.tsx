@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import TextInput from "./TextInput";
 import Textarea from "./Textarea";
@@ -7,12 +7,17 @@ import { SendMessage } from "@/lib/actions";
 import { useFormState } from "react-dom";
 
 const ContactForm = () => {
-
-  const [state, action] = useFormState(SendMessage,{message:{message:"",name:"",email:""}})
-
+  const [, action] = useFormState(SendMessage, {
+    message: "",
+    email: "",
+    name: "",
+  });
 
   return (
-    <form className="flex flex-col items-center gap-1 flex-grow " action={action}>
+    <form
+      className="flex flex-col items-center gap-1 flex-grow "
+      action={action}
+    >
       <TextInput name="name" id="name" placeholder="Name" />
       <TextInput name="email" type="email" id="email" placeholder="Email" />
       <Textarea
@@ -21,7 +26,7 @@ const ContactForm = () => {
         placeholder="Message"
         className=" flex-grow "
       />
-
+      
       <div className="w-3/4 text-start">
         <FormButton />
       </div>
