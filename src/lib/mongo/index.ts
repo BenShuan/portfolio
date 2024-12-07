@@ -29,7 +29,7 @@ if (process.env.NODE_ENV === "development") {
 export async function connectProjectsCollection() {
   
   try {
-    let clientPromise = await client.connect();
+    const clientPromise = await client.connect();
     const db = clientPromise.db("portfolio");
     return db;
   } catch (error) {
