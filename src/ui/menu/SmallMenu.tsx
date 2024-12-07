@@ -1,11 +1,11 @@
 "use client";
 import React, { useRef, useState } from "react";
-import Button from "./Button";
+import Button from "../Button";
 import { motion } from "framer-motion";
 import MenuButton from "./MenuButton";
 import NavItem from "./NavItem";
-import useClickOutside from "../utils/useClickOutside";
-import { menuScheme } from "../lib/schems";
+import useClickOutside from "../../utils/useClickOutside";
+import { menuScheme } from "../../lib/schems";
 import Link from "next/link";
 import Image from "next/image";
 import icon from "@/app/icon.png";

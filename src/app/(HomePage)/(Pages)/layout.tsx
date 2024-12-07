@@ -1,17 +1,17 @@
 import { menu } from "@/lib/DataFunctions";
-import Menu from "@/ui/Menu";
-import SmallMenu from "@/ui/SmallMenu";
+import Menu from "@/ui/menu/Menu";
+import SmallMenu from "@/ui/menu/SmallMenu";
 import { ReactNode } from "react";
 
 function layout({ children }: { children: ReactNode }) {
   return (
-    <div className=" font-[family-name:var(--font-surf-sans)] backdrop-blur h-full flex flex-col ">
-        <header className="h-[5%] md:h-[10%] lg:h-[15%]">
-          <SmallMenu menu={menu} />
-          <Menu menu={menu} />
-        </header>
-        <main className=" h-[95%] md:h-[90%] lg:h-[85%]  ">{children}</main>
-      </div>
+    <div className=" font-[family-name:var(--font-surf-sans)] backdrop-blur h-lvh flex flex-col ">
+      <header className="">
+        <SmallMenu menu={menu} />
+        <Menu menu={menu} />
+      </header>
+      <main className=" flex-grow overflow-scroll ">{children}</main>
+    </div>
   );
 }
 

@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react";
+import { twMerge } from "tailwind-merge";
 
 interface headerProp extends React.AllHTMLAttributes<HTMLParagraphElement> {
   children: ReactNode;
@@ -14,7 +15,7 @@ const Header = ({ children, className,hasShadow=false, color="black",...rest }: 
 
   return (
     <h1
-      className={` text-4xl lg:text-5xl font-extrabold capitalize text-balance ${color==="black" && "text-slate-800"  } ${className} `}
+      className={twMerge( ` text-4xl lg:text-5xl font-extrabold capitalize text-balance `,color==="black" && "text-slate-800"  ,className )}
       style={{textShadow:`${shadow}`}}
       {...rest}
     >

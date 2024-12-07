@@ -27,7 +27,7 @@ const BoardsSection = () => {
             >
               <Image
                 src={Surfboard}
-                
+                quality={75}
                 alt="surfboard"
                 className="absolute right-0 drop-shadow-2xl "
               />

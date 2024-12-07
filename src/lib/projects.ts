@@ -1,92 +1,152 @@
-const projects = [
-  {
-    Id: 1,
-    Name: "Dog Shelter Matcher",
-    Link: "https://dogsheltermatcher.com",
-    githubLink:"https://github.com/ruppinCgroup54/Hameluna-client",
-    ImageLink: "/images/מי בבית.png",
-    Technologies: [
-      "React.js",
-      ".NetCore",
-      "MSSQL",
-      "MongoDB",
-      "Firebase RT database",
-    ],
-    Description:
-      "A web application that matches potential adopters with dogs in shelters using AI technology.",
-  },
-  {
-    Id: 2,
-    Name: "E-commerce Platform",
-    Link: "https://ecommerceplatform.com",
-    ImageLink: "/images/מי בבית.png",
-    githubLink:"https://github.com/ruppinCgroup54/Hameluna-client",
-    Technologies: ["Next.js", "Node.js", "PostgreSQL", "Stripe API", "AWS"],
-    Description:
-      "An end-to-end e-commerce solution supporting multiple sellers, secure payments, and a streamlined UI for shoppers.",
-  },
-  {
-    Id: 3,
-    Name: "Portfolio Website",
-    Link: "https://johndoeportfolio.com",
-    ImageLink: "/images/מי בבית.png",
-    githubLink:"https://github.com/ruppinCgroup54/Hameluna-client",
-    Technologies: ["HTML", "CSS", "JavaScript", "Bootstrap", "Email.js"],
-    Description:
-      "A personal portfolio showcasing projects, skills, and experiences with an integrated contact form.",
-  },
-  {
-    Id: 4,
-    Name: "Social Media Dashboard",
-    Link: "https://socialmediadashboard.com",
-    ImageLink: "/images/מי בבית.png",
-    githubLink:"https://github.com/ruppinCgroup54/Hameluna-client",
-    Technologies: ["Vue.js", "Firebase", "Express.js", "Node.js", "Chart.js"],
-    Description:
-      "A dashboard that tracks and displays user engagement across multiple social media platforms.",
-  },
-  {
-    Id: 5,
-    Name: "Real Estate Listings",
-    Link: "https://realestatelistings.com",
-    ImageLink: "/images/מי בבית.png",
-    githubLink:"https://github.com/ruppinCgroup54/Hameluna-client",
-    Technologies: ["Angular", "ASP.NET Core", "MySQL", "Azure", "Leaflet"],
-    Description:
-      "A web application for browsing real estate listings, with interactive maps and filters for enhanced user experience.",
-  }, {
-    Id: 6,
-    Name: "Real Estate Listings",
-    Link: "https://realestatelistings.com",
-    ImageLink: "/images/מי בבית.png",
-    githubLink:"https://github.com/ruppinCgroup54/Hameluna-client",
-    Technologies: ["Angular", "ASP.NET Core", "MySQL", "Azure", "Leaflet"],
-    Description:
-      "A web application for browsing real estate listings, with interactive maps and filters for enhanced user experience.",
-  }, {
-    Id: 7,
-    Name: "Real Estate Listings",
-    Link: "https://realestatelistings.com",
-    ImageLink: "/images/מי בבית.png",
-    githubLink:"https://github.com/ruppinCgroup54/Hameluna-client",
-    Technologies: ["Angular", "ASP.NET Core", "MySQL", "Azure", "Leaflet"],
-    Description:
-      "A web application for browsing real estate listings, with interactive maps and filters for enhanced user experience.",
-  }, {
-    Id: 8,
-    Name: "Real Estate Listings",
-    Link: "https://realestatelistings.com",
-    ImageLink: "/images/מי בבית.png",
-    githubLink:"https://github.com/ruppinCgroup54/Hameluna-client",
-    Technologies: ["Angular", "ASP.NET Core", "MySQL", "Azure", "Leaflet"],
-    Description:
-      "A web application for browsing real estate listings, with interactive maps and filters for enhanced user experience.",
-  },
-];
+import clientPromise from "@/lib/mongo/index";
+import { projectScheme } from "./schems";
 
-
-export const GetProjects=()=>{
-
-  return projects;
-
+let client;
+async function connectProjectsCollection() {
+  try {
+    client = await clientPromise.connect();
+    const db = client.db("portfolio");
+    return db;
+  } catch (error) {
+    throw new Error("Unable to connect mongoDB");
+  }
 }
+
+export async function GetProjects(): Promise<projectScheme[]> {
+  
+  let allProjects;
+
+  try {
+    const db = await connectProjectsCollection();
+    allProjects = await db
+      .collection("projects")
+      .find({})
+      .sort({ metacritic: -1 })
+      .limit(10)
+      .toArray();
+    return JSON.parse(JSON.stringify(allProjects));
+  } catch (e) {
+    console.error(e);
+    return [];
+  }
+}
+
+export const GetProjectBySlug = async (slug: string) => {
+ 
+  try {
+    const db = await connectProjectsCollection();
+    const proj = await db.collection<projectScheme>("projects").findOne({"Slug":slug})
+
+    if (!proj) {
+      throw new Error;
+    }
+
+    return proj;
+      
+  } catch (e) {
+    console.error(e);
+    throw new Error("Unable to get the project " + slug)
+  }
+};
+
+export async function SaveProject(proj: projectScheme) {
+
+
+  try {
+    const db = await connectProjectsCollection();
+    const newProj = db.collection("projects").insertOne(proj)
+    return newProj;
+  } catch (e) {
+    console.error(e);
+    return {};
+  }
+}
+
+export const GetTechnologies = () => {
+  const fullStackTechnologies = [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "TypeScript",
+    "React.js",
+    "Angular",
+    "Vue.js",
+    "Svelte",
+    "Node.js",
+    "Express.js",
+    "Next.js",
+    "Nuxt.js",
+    "Redux",
+    "MobX",
+    "Bootstrap",
+    "Tailwind CSS",
+    "Material-UI",
+    "Chakra UI",
+    "jQuery",
+    "ASP.NET Core",
+    "Django",
+    "Flask",
+    "Ruby on Rails",
+    "Spring Boot",
+    "PHP",
+    "Laravel",
+    "CodeIgniter",
+    "Symfony",
+    "GraphQL",
+    "REST APIs",
+    "WebSockets",
+    "MongoDB",
+    "PostgreSQL",
+    "MySQL",
+    "MariaDB",
+    "SQLite",
+    "Firebase",
+    "AWS (Amazon Web Services)",
+    "Google Cloud Platform (GCP)",
+    "Microsoft Azure",
+    "Docker",
+    "Kubernetes",
+    "Git",
+    "GitHub",
+    "GitLab",
+    "Bitbucket",
+    "CI/CD Pipelines",
+    "Webpack",
+    "Vite",
+    "Parcel",
+    "Babel",
+    "ESLint",
+    "Prettier",
+    "Testing Libraries (e.g., Jest, Mocha, Chai)",
+    "Cypress",
+    "Playwright",
+    "Puppeteer",
+    "Microservices Architecture",
+    "Serverless Architecture",
+    "Socket.io",
+    "Nginx",
+    "Apache",
+    "Terraform",
+    "Ansible",
+    "Postman",
+    "Swagger",
+    "Figma",
+    "Adobe XD",
+    "SQL",
+    "NoSQL",
+    "Redis",
+    "RabbitMQ",
+    "Kafka",
+    "Agile/Scrum",
+    "JIRA",
+    "VS Code",
+    "IntelliJ IDEA",
+    "Eclipse",
+    "PyCharm",
+    "NetBeans",
+  ];
+
+  return fullStackTechnologies;
+};
+
+

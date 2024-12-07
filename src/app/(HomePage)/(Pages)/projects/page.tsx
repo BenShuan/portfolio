@@ -1,22 +1,19 @@
-import { GetProjects } from "@/lib/projects";
 import Header from "@/ui/Header";
-import Project from "@/ui/Project";
+import Projects from "@/ui/projects/Projects";
+import ProjectsSkelaton from "@/ui/projects/ProjectsSkelaton";
+import { Suspense } from "react";
 
-function Projects() {
-
-  const projects = GetProjects()
-
+function ProjectsPage() {
   return (
     <div className="h-full flex flex-col ">
-    <Header className=" text-center mt-6 mb-4 md:text-5xl"  hasShadow={true} > My Projects </Header>
-    <div className="flex flex-wrap justify-evenly flex-1 gap-9 overflow-scroll py-4">
-      {projects.map((proj) => {
-        return  <Project key={proj.Id} proj={proj} />;
-      })}
+      <Header className=" text-center mt-6 mb-4 md:text-5xl" hasShadow={true}>
+        My Projects
+      </Header>
+      <Suspense fallback={<ProjectsSkelaton />}>
+        <Projects />
+      </Suspense>
     </div>
-    </div>
-
   );
 }
 
-export default Projects;
+export default ProjectsPage;

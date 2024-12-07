@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
-import TextInput from "./TextInput";
-import Textarea from "./Textarea";
-import FormButton from "./FormButton";
 import { SendMessage } from "@/lib/actions";
 import { useFormState } from "react-dom";
+import TextInput from "./forms/TextInput";
+import Textarea from "./forms/Textarea";
+import FormButton from "./forms/FormButton";
 
 const ContactForm = () => {
   const [, action] = useFormState(SendMessage, {
@@ -26,7 +26,7 @@ const ContactForm = () => {
         placeholder="Message"
         className=" flex-grow "
       />
-      
+
       <div className="w-3/4 text-start">
         <FormButton />
       </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useFormStatus } from "react-dom";
-import Button from "./Button";
+import Button from "../Button";
 
 const FormButton = () => {
 
