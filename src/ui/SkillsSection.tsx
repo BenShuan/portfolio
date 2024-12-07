@@ -2,11 +2,12 @@
 import React from "react";
 import { Skill } from "./Skill";
 import Header from "./Header";
+import { GetMySkills } from "@/lib/DataFunctions";
 
-const skills = ["HTML", "CSS", "JS", "C#", ".NET CORE"];
 
-export const SkillsSection = () => {
+export const SkillsSection =async () => {
  
+  const skills = await GetMySkills()
 
   return (
 

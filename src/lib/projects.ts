@@ -1,16 +1,7 @@
-import clientPromise from "@/lib/mongo/index";
+import  { connectProjectsCollection } from "@/lib/mongo/index";
 import { projectScheme } from "./schems";
 
-let client;
-async function connectProjectsCollection() {
-  try {
-    client = await clientPromise.connect();
-    const db = client.db("portfolio");
-    return db;
-  } catch (error) {
-    throw new Error("Unable to connect mongoDB");
-  }
-}
+
 
 export async function GetProjects(): Promise<projectScheme[]> {
   

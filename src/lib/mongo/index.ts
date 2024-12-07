@@ -25,6 +25,19 @@ if (process.env.NODE_ENV === "development") {
   client = new MongoClient(uri, options);
 }
 
+
+export async function connectProjectsCollection() {
+  
+  try {
+    let clientPromise = await client.connect();
+    const db = clientPromise.db("portfolio");
+    return db;
+  } catch (error) {
+    throw new Error("Unable to connect mongoDB");
+  }
+
+}
+
 // Export a module-scoped MongoClient. By doing this in a
 // separate module, the client can be shared across functions.
 
