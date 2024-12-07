@@ -6,6 +6,7 @@ import Header from "./Header";
 import { menu } from "../lib/DataFunctions";
 
 import Surfboard from "@/assets/surfboard.png";
+import InViewContainer from "./InViewContainer";
 
 const BoardsSection = () => {
   return (
@@ -15,31 +16,33 @@ const BoardsSection = () => {
         </div> */}
       {menu
         .filter((l) => l.text != "Home")
-        .map((item) => {
+        .map((item,i) => {
           return (
-            <Link
-              key={item.link}
-              href={item.link}
-              className={
-                `hover:scale-125 md:w-1/4 w-3/4 md:h-3/4 h-[30%] min-h-56 p-4 flex flex-col justify-center transition-all relative`
-                // bg-surfboard bg-center bg-contain bg-no-repeat
-              }
-            >
-              <Image
-                src={Surfboard}
-                quality={75}
-                alt="surfboard"
-                className="absolute right-0 drop-shadow-2xl "
-              />
-              <Header
-                style={{
-                  textShadow: "1px 1px 2px white, 0 0 1em white",
-                }}
-                className="text-center text-black text-2xl z-10 after:block  "
+            <InViewContainer key={item.link} index={i} className="min-h-56 md:w-1/4 w-3/4 md:h-3/4 h-[30%] p-4" >
+              <Link
+                href={item.link}
+                className={
+                  `flex flex-col justify-center transition-all relative 
+                md:hover:scale-125 `
+                  // bg-surfboard bg-center bg-contain bg-no-repeat
+                }
               >
-                {item.text}
-              </Header>
-            </Link>
+                <Image
+                  src={Surfboard}
+                  quality={75}
+                  alt="surfboard"
+                  className="absolute right-0 drop-shadow-2xl "
+                />
+                <Header
+                  style={{
+                    textShadow: "1px 1px 2px white, 0 0 1em white",
+                  }}
+                  className="text-center text-black text-2xl z-10 after:block  "
+                >
+                  {item.text}
+                </Header>
+              </Link>
+            </InViewContainer>
           );
         })}
     </section>

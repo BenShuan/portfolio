@@ -13,6 +13,7 @@ export interface projectScheme {
   ImageLink:string ,
   githubLink:string,
   Technologies:string[],
+  Summary:string
   Description:string,
 }
 

@@ -35,7 +35,7 @@ const Project = ({ proj }: { proj: projectScheme }) => {
         <Link href={`/projects/${proj.Slug}`} className="hover:underline">
           <Header color="white">{proj.Name}</Header>
         </Link>
-        <p className=" md:text-xl h-1/3 overflow-scroll ">{proj.Description}</p>
+        <p className=" md:text-xl   ">{proj.Summary}</p>
         <div className="flex flex-wrap gap-2 ">
           {proj.Technologies.map((t) => {
             return (

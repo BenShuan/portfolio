@@ -8,7 +8,7 @@ const Projects =async () => {
 
 
   return (
-    <div className="flex flex-wrap justify-evenly flex-1 gap-9 overflow-scroll py-4">
+    <div className="flex flex-wrap justify-evenly items-start flex-1 gap-9 overflow-scroll py-4">
       {projects.map((proj) => {
         return <Project key={proj.Slug} proj={proj} />;
       })}

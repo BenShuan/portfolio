@@ -45,6 +45,7 @@ export async function PostProject(
     githubLink: formData.get("githubLink")?.toString()||"",
     Technologies: formData.getAll("technologies") as string[] ||[],
     Description: formData.get("description")?.toString()||"",
+    Summary: formData.get("summary")?.toString()||"",
   };
 
 

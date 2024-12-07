@@ -36,7 +36,7 @@ function HeroSection() {
         transition={{
           ease: "backOut",
           type: "spring",
-          duration: 3,
+          duration: 2,
         }}
       >
 

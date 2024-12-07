@@ -26,6 +26,12 @@ const ProjectForm = ({technologies}:{technologies:string[]}) => {
         className=" col-span-2  w-full"
         rows={4}
       />
+      <Textarea required
+        name="summary"
+        placeholder="Short Description"
+        className=" col-span-2  w-full"
+        rows={1}
+      />
       <FileInput type="file" name="image" className="row-start-2 col-start-3 row-span-2 w-full "  />
 
       <div className=" text-star col-span-3">
