@@ -55,7 +55,7 @@ const ProjectPage = async ({ params }: { params: { slug: string } }) => {
         </InViewContainer>
         <InViewContainer
           toDirection="left"
-          className="flex justify-center m-0 gap-3 mt-4
+          className="flex justify-center m-0 gap-6 mt-4
           md:items-start md:justify-center md:flex-row "
         >
           <Button
