@@ -16,7 +16,7 @@ const BoardsSection = () => {
         </div> */}
       {menu
         .filter((l) => l.text != "Home")
-        .map((item,i) => {
+        .map((item) => {
           return (
             <InViewContainer key={item.link}  className="min-h-56 md:w-1/4 w-3/4 md:h-3/4 h-[30%] p-4" >
               <Link
