@@ -20,9 +20,12 @@ function SmallMenu({ menu }: { menu: menuScheme[] }) {
   });
 
   return (
-    <div className="h-20 relative md:hidden">
+    <div className="h-20 relative md:hidden ">
+      <Link href={"/"} className="absolute right-2 top-2 h-16 w-16  ">
+        <Image src={icon} alt="Ben Shuan icon" priority fill></Image>
+      </Link>
       <motion.div
-        className={`fixed bg-main-blue-default rounded-xl z-10 `}
+        className={`fixed bg-main-blue-default rounded-xl z-10   `}
         initial={false}
         animate={isOpen ? "open" : "closed"}
         ref={catMenu}
@@ -35,14 +38,14 @@ function SmallMenu({ menu }: { menu: menuScheme[] }) {
           <MenuButton isOpen={isOpen} />
         </Button>
         <motion.ul
-          className=" text-center "
+          className=" text-center  "
           variants={{
             open: {
               display: "flex",
               flexDirection: "column",
               gap: "1rem",
-              padding: "2rem 0",
-              height: "100dvh",
+              padding: "1rem 0",
+              height: "calc( 100lvh - 4rem)",
               width: "clamp(150px,25vw,500px)",
               clipPath: "inset(0% 0% 0% 0% round 10px)",
               transition: {
@@ -57,6 +60,7 @@ function SmallMenu({ menu }: { menu: menuScheme[] }) {
               clipPath: "inset(10% 50% 90% 50% round 10px)",
               width: "0",
               height: "0",
+              padding: "0",
               transition: {
                 type: "spring",
                 bounce: 0,
@@ -69,20 +73,9 @@ function SmallMenu({ menu }: { menu: menuScheme[] }) {
             .filter((v, i) => i !== 0)
             .map((item) => {
               return (
-                <NavItem key={item.link} text={item.text} link={item.link} />
+                <NavItem key={item.link} text={item.text} link={item.link} onClick={()=>setIsOpen(false)} />
               );
             })}
-          <Link href={"/"}>
-            <li className=" relative w-12 h-12 m-auto mt-10">
-              <Image
-                src={icon}
-                alt="Ben Shuan icon"
-                width={100}
-                height={100}
-                priority
-              ></Image>
-            </li>
-          </Link>
         </motion.ul>
       </motion.div>
     </div>

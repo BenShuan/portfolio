@@ -11,12 +11,14 @@ const Project = ({ proj }: { proj: projectScheme }) => {
 
   return (
     <div className=" w-4/5 aspect-[5/6] lg:aspect-square  md:w-[40%] lg:w-1/4 relative group overflow-hidden *:rounded-lg drop-shadow-2xl ">
+        <Link href={`/projects/${proj.Slug}`} className="hover:underline">
+
       <Image
         src={proj.ImageLink }
         alt={proj.Name}
         fill
         quality={30}
-        sizes="50%"
+        sizes="30%"
         className="absolute h-full object-cover w-full  "
       />
       <div className="md:translate-y-full md:group-hover:-translate-y-0 bg-gradient-to-t from-black/[0.6] from-70% absolute size-full  flex flex-col justify-end p-4 gap-4 transition duration-700 ">
@@ -32,9 +34,7 @@ const Project = ({ proj }: { proj: projectScheme }) => {
             </a>
           </Button>
         </div>
-        <Link href={`/projects/${proj.Slug}`} className="hover:underline">
           <Header color="white">{proj.Name}</Header>
-        </Link>
         <p className=" md:text-xl   ">{proj.Summary}</p>
         <div className="flex flex-wrap gap-2 ">
           {proj.Technologies.map((t) => {
@@ -49,6 +49,8 @@ const Project = ({ proj }: { proj: projectScheme }) => {
           })}
         </div>
       </div>
+      </Link>
+
     </div>
   );
 };

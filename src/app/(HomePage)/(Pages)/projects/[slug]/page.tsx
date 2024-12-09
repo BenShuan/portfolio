@@ -36,7 +36,7 @@ const ProjectPage = async ({ params }: { params: { slug: string } }) => {
       >
         <div className="relative h-full max-w-full rounded-3xl overflow-hidden m-auto ">
           <Suspense fallback={<div>Loading image</div>} >
-            <Image src={project?.ImageLink} alt={project?.Name} fill quality={40} />
+            <Image src={project?.ImageLink} alt={project?.Name} fill quality={40} sizes="30%"/>
           </Suspense>
         </div>
       </InViewContainer>

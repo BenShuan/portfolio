@@ -31,7 +31,7 @@ const backgroundVaianbt : Variants={
   }
 }
 
-const NavItem = ({ link, text,className,children }: NavItemProps) => {
+const NavItem = ({ link, text,className,children,onClick }: NavItemProps) => {
 
   const path = usePathname();
 
@@ -40,6 +40,7 @@ const NavItem = ({ link, text,className,children }: NavItemProps) => {
       variants={itemVariants}
       whileHover={"hover"}
       whileTap={{scale: 0.95}}
+      onClick={onClick}
       className= {`relative font-extrabold flex justify-center  items-center ${className}` }
     >
       
@@ -50,7 +51,7 @@ const NavItem = ({ link, text,className,children }: NavItemProps) => {
       animate={path.startsWith(link) ?"hover":""}
     >
     </motion.span>
-      <Link className="relative text-2xl " href={link}>{children}{text}</Link>
+      <Link className="relative text-2xl "  href={link}>{children}{text}</Link>
     </motion.li>
   );
 };

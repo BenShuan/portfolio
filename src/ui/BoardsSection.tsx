@@ -18,7 +18,7 @@ const BoardsSection = () => {
         .filter((l) => l.text != "Home")
         .map((item,i) => {
           return (
-            <InViewContainer key={item.link} index={i} className="min-h-56 md:w-1/4 w-3/4 md:h-3/4 h-[30%] p-4" >
+            <InViewContainer key={item.link}  className="min-h-56 md:w-1/4 w-3/4 md:h-3/4 h-[30%] p-4" >
               <Link
                 href={item.link}
                 className={

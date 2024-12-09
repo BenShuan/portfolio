@@ -6,7 +6,7 @@ import { ReactNode } from "react";
 function layout({ children }: { children: ReactNode }) {
   return (
     <div className=" font-[family-name:var(--font-surf-sans)] backdrop-blur h-lvh flex flex-col ">
-      <header className="">
+      <header >
         <SmallMenu menu={menu} />
         <Menu menu={menu} />
       </header>
