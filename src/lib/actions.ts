@@ -7,6 +7,7 @@ import { SaveProject } from "./projects";
 import { uploadImage } from "./cloudinary";
 import slugify from "slugify";
 import { ObjectId } from "mongodb";
+import { SendEmail } from "./DataFunctions";
 
 
 
@@ -15,10 +16,16 @@ export async function SendMessage(prevState: formScheme, formData: FormData) {
     name: formData.get("name"),
     email: formData.get("email"),
     message: formData.get("message"),
-  };
+  } as formScheme;
 
   if (!data) {
     return data;
+  }
+
+  try{
+    await SendEmail(data)
+  }catch{
+    throw new Error("Could not send mail")
   }
 
   revalidatePath("/", "layout");
