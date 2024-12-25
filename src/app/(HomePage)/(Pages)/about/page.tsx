@@ -4,7 +4,7 @@ import { SkillsSection } from "@/ui/SkillsSection";
 
 function About() {
   return (
-    <div className="my-6 flex flex-col gap-4">
+    <div className="my-6 flex flex-col gap-4 container m-auto">
       <InViewContainer
         index={0}
         className=" text-slate-800 mx-6 md:w-3/5 md:m-auto "

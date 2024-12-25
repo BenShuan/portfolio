@@ -10,7 +10,7 @@ function layout({ children }: { children: ReactNode }) {
         <SmallMenu menu={menu} />
         <Menu menu={menu} />
       </header>
-      <main className=" flex-grow overflow-scroll ">{children}</main>
+      <main className=" flex-grow overflow-scroll pb-10">{children}</main>
     </div>
   );
 }

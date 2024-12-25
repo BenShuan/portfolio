@@ -6,7 +6,7 @@ function Contant() {
   return (
     <InViewContainer className="h-full">
 
-    <div className="rounded-3xl bg-main-blue-light h-[85%] w-auto md:w-3/4 md:m-auto mx-8 mt-8 text-center flex flex-col py-3 ">
+    <div className="rounded-3xl bg-main-blue-light h-[100%] w-auto md:w-3/4 md:m-auto mx-8 mt-8 text-center flex flex-col py-3 ">
       <Header className="my-4 "  hasShadow={true} >Contact me for more</Header>
 
       <span className="bg-main-brown-dark h-2 w-10 rounded-lg items-center m-auto"></span>

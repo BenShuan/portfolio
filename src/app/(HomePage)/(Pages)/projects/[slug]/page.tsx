@@ -4,27 +4,29 @@ import Header from "@/ui/Header";
 import InViewContainer from "@/ui/InViewContainer";
 import { Skill } from "@/ui/Skill";
 import Image from "next/image";
-import { Suspense } from "react";
 import { BsGithub } from "react-icons/bs";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 
 const ProjectPage = async ({ params }: { params: { slug: string } }) => {
   const project = await GetProjectBySlug(params.slug);
 
-
+  // const readme = await fetch(`https://raw.githubusercontent.com/BenShuan/${params.slug}/main/README.md`).then(res=>res.text())
+  const readme = await fetch('https://raw.githubusercontent.com/BenShuan/portfolio/main/README.md').then(res=>res.text())
+  console.log('readme', readme)
 
   return (
-    <div className="size-full px-6  *:mt-4 grid grid-rows-12 grid-cols-3 grid-flow-row gap-2 md:px-12 ">
+    <div className="size-full px-6 pb-10 container *:mt-4 grid grid-rows-12 grid-cols-3 grid-flow-row gap-4 md:px-12 m-auto">
       <InViewContainer
         toDirection="right"
         className="row-span-4 col-span-3 flex flex-col bg-main-brown-light/70 p-4 rounded-lg overflow-scroll 
         md:row-span-3 md:col-span-3 md:flex-row
-         lg:block lg:col-span-1 lg:row-span-11  "
+         lg:block lg:col-span-1 lg:row-span-12  "
       >
         <Header className=" text-pretty mb-2 text-3xl font-extrabold md:w-1/3 lg:w-full">{project.Name}</Header>
         <p className="text-2xl  text-slate-800 text-pretty 
         md:w-2/3 lg:w-full">
-          {project.Description}
+          {/* {project.Description} */}
+          {readme}
         </p>
       </InViewContainer>
 
@@ -35,9 +37,7 @@ const ProjectPage = async ({ params }: { params: { slug: string } }) => {
         lg:col-span-2 lg:row-start-1 lg:col-start-2"
       >
         <div className="relative h-full max-w-full rounded-3xl overflow-hidden m-auto ">
-          <Suspense fallback={<div>Loading image</div>} >
             <Image src={project?.ImageLink} alt={project?.Name} fill quality={40} sizes="30%"/>
-          </Suspense>
         </div>
       </InViewContainer>
 
@@ -46,7 +46,7 @@ const ProjectPage = async ({ params }: { params: { slug: string } }) => {
           toDirection="up"
           className="text-center "
         >
-          <p className="text-xl text-slate-800 mb-2">Made with</p>
+          <p className="text-2xl text-slate-800 mb-2">Made with</p>
           <div className="flex flex-wrap justify-center gap-2">
             {project.Technologies.map((t) => {
               return <Skill key={t} name={t} />;
